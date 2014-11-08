@@ -27,8 +27,6 @@ public abstract class AbstractLecteurFichier implements InterfaceLecteurFichier 
 			int octet = 0;
 			while (octet !=  -1 ) {
 			   octet = fis.read();
-			   //char character = (char) octet;
-			   //this.content.add(Character.toString(character));
 			   byte[] b ={(byte)octet};
 			   this.content.add(new String(b,"UTF-8"));
 			}
