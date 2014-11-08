@@ -1,13 +1,24 @@
+import java.util.ArrayList;
 
 public class LecteurFichierReverse extends LecteurFichier {
-	
+
+	protected ArrayList<String> lines;
 	public LecteurFichierReverse(String file_name){
 		super(file_name);
 	}
 	
 	public void show() {
-		for(int i = this.content.size()-1; i >=0 ; i--){
-			System.out.print(this.content.get(i));
+		this.lines = new ArrayList<String>();
+		String line = new String();
+		for(int i = 0; i < this.content.size(); i++){
+			line+=this.content.get(i);
+			if (this.content.get(i).equals("\n")){
+				this.lines.add(line);
+				line="";
+			}
+		}
+		for(int i = this.lines.size()-1; i >=0 ; i--){
+			System.out.print(this.lines.get(i));
 		}
 	}
 }
